@@ -13,5 +13,23 @@
 	"description": "Allows you play multiplayer",
 	"dependencies": {
 		"geode.node-ids": ">=v1.2.3"
-	}
+		"resources": {}, 
+"tags": [ 
+"online", 
+"offline"
+], 
+"dependencies": { 
+"geode.node-ids": { 
+"version": ">=1.11.0", 
+"required": true 
+}, 
+"settings": { 
+"disable-trail": { 
+"type": "bool", 
+"name": "disable trail", 
+"description": "disable trail will disable trail of other player (you wont see other player gamemode trails or wave trail).", 
+"default": false 
+
+       }
+    } 
 }
