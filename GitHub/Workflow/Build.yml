@@ -2,9 +2,9 @@ name: Build multiplayer
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -12,25 +12,22 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - name: Windows
-            os: windows-2022
-          - name: macOS
-            os: macOS-14
-          - name: Android
-            os: ubuntu-22.04
-            target: Android
-          - name: IOS
-            os: ios-14
+        - name: Windows
+          os: windows-latest
+        - name: Android32
+          os: ubuntu-latest
+          target: android32
+        - name: Android64
+          os: ubuntu-latest
+          target: android64
 
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
 
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Build the Mod
-        uses: geode-sdk/build-geode-mod@main
-        with:
-          bindings: geode-sdk/bindings
-          combine: true
-          target: ${{ matrix.config.target }}
+    - name: Build Mod
+      uses: geode-sdk/build-geode-mod@main
+      with:
+        sdk: 'latest'
