@@ -43,7 +43,4 @@ class $modify(MyLevelInfoLayer, LevelInfoLayer) {
     void onCreateRoom(CCObject* sender);
     void onJoinRoom(CCObject* sender);
     void onLeaveRoom(CCObject* sender);
-    resources/createroom.png
-    resources/joinroom.png
-    resources/leaveroom.png
 };
