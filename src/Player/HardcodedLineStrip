@@ -1,0 +1,16 @@
+// Inside your ghost player fields initialization
+HardcodedLineStrip* m_nativeWaveTrail = nullptr;
+
+// Inside init():
+m_nativeWaveTrail = HardcodedLineStrip::create();
+m_nativeWaveTrail->m_thickness = 4.0f;
+m_nativeWaveTrail->m_color = { 0, 255, 255, 255 }; // Cyan color tint
+this->addChild(m_nativeWaveTrail);
+
+// Inside your network update loop:
+if (m_isWave) {
+    // Dynamically feed positions to build the solid sharp line path
+    m_nativeWaveTrail->addPoint(this->getPosition());
+} else {
+    m_nativeWaveTrail->clear();
+}
