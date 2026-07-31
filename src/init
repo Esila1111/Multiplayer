@@ -1,0 +1,5 @@
+bool inARoom = false; // Replace with your real network status boolean
+
+createBtn->setVisible(!inARoom);
+joinBtn->setVisible(!inARoom);
+leaveBtn->setVisible(inARoom);
